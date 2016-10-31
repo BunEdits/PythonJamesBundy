@@ -16,5 +16,10 @@ while True:
 	#time.sleep(2) #DEBUG Check if time.sleep works. 2 seconds
 
 	
-while True:
-	
+
+file = open("C:\Users\james\Desktop\~Desktop~\James Plymouth Uni\~Tasks~\~Second Year~\DAT 505\PythonJamesBundy\Twitter\TwitterCredentials.txt")
+creds = file.read().split('\n')
+api = twitter.Api(creds[0],creds[1],creds[2],creds[3])
+timestamp = datetime.datetime.utcnow()
+response = api.PostUpdate("Tweeted at " + str(timestamp))
+print("Status updated to: " + response.text)
