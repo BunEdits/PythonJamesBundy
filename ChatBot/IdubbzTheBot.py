@@ -3,7 +3,7 @@ import time #Imports time
 import datetime #Imports date
 
 
-print("I am Version 001 Of Idubbbz ChatBot").upper()
+print("I am Version 002 Of Idubbbz ChatBot").upper()
 print("Created By James Bundy")
 
 
@@ -28,6 +28,8 @@ def ENDBOT():
 #Greetings section
 def GREETINGS():
 
+	print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~") #Prints the separator
+
 	greetingPeople = ['hey','hello','hi','yo'] #My list of greetings
 	anGreeting = raw_input("Say Hey, Hello, Hi or Yo!: ").lower() #User input, sets it to lower case so can be found in list
 	
@@ -40,20 +42,31 @@ def GREETINGS():
 		#print("DEBUG Not Found") #Not found a greeting, DEBUG
 		print("Wrong! Greet Me!")
 		GREETINGS()
+		
+	HOWOLD() #Activates function
 
 		
 #Age section		
 def HOWOLD():
 	
+	print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~") #Prints the separator
+	
 	global AGEG #Makes age global for other functions
 	print("Enter Only A Number") #Prints message
 	AGEG = raw_input("How Old Are You?: ") #User input
 	
-	print("Good to know you are" + ' ' + AGEG + ' ' + "this will be usful to me later!") #Prints message with age variable
+	print("Good To Know You Are" + ' ' + AGEG + ' ' + "This Will Be useful To Me Later!") #Prints message with age variable
+	
+	TALKABOUT()
+
+
+
 
 	
 #Talk about section, acts like menu	
 def TALKABOUT():
+
+	print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~") #Prints the separator
 
 #Prints message for user to know what to input.
 	print("I Want To Learn About You Complete All Below")
@@ -74,7 +87,7 @@ def TALKABOUT():
 #Prints message for user to know what to input.	
 	print("Once You Have Told Me All Your Favourites Say 'Finished' ")
 	print("Say 'Favourite Age', Or Any From The List. ")
-	ANSWERTA = raw_input("What would you like to talk about?: ").lower() #User input, sets it to lower case
+	ANSWERTA = raw_input("What Would You Like To Talk About?: ").lower() #User input, sets it to lower case
 
 #Global variables	
 	global FAge
@@ -111,28 +124,18 @@ def TALKABOUT():
 		print("Im Not That Smart! ")
 		TALKABOUT()
 	
-	
-	
-	
-	
-	
-	
-
-
-
-
-
-	
-
+		
 def FAVOURITEage():
 	print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~") #Prints the separator
 
 	global WISHAGE
 	
 	print("I Know You Are" + ' ' + AGEG)
-	WISHAGE = raw_input("What age do you wish you was again?: ")
+	WISHAGE = raw_input("What Age Do You Wish You Was Again?: ")
 	
-	print("I Wish I Could Be" + ' ' + WISHAGE + ' ' + "Again! This Will Be Usful To Me Later!")
+	print("I Wish I Could Be" + ' ' + WISHAGE + ' ' + "Again! I Will Use This Later!")
+	
+	TALKABOUT()
 
 
 def FAVOURITEtimeofday():
@@ -142,7 +145,7 @@ def FAVOURITEtimeofday():
 	global WISHDATE
 	
 	print("Input Time As Follows 24 Hour Clock: HH:MM:SS ")
-	WISHTIME = raw_input("What is your favourite time of day?: ")
+	WISHTIME = raw_input("What Is Your Favourite Time Of Day?: ")
 	
 	print(" ")
 
@@ -151,14 +154,32 @@ def FAVOURITEtimeofday():
 	
 	print(" ")
 	
-	print("Now I Know Your Favourite Time Of Day Is:" + ' ' + WISHTIME + ' ' + "This Will Be Usful To Me Later!")
-	print("Now I Know Your Favourite Date Is:" + ' ' + WISHDATE + ' ' + "This Will Be Usful To Me Later!")
+	print("Now I Know Your Favourite Time Of Day Is:" + ' ' + WISHTIME + ' ' + "This Will Be Useful To Me Later!")
+	print("Now I Know Your Favourite Date Is:" + ' ' + WISHDATE + ' ' + "This Will Be Useful To Me Later!")
 
+	print(" ")
 
+	print("Here Is Everything I Know About the Time/Date: ")
+	
+	print(" ")
+	
+	print("                                         Day-Month-Year-Hour-Minute")
+	print "This Is The Current date and time Right Now: ",datetime.datetime.now().strftime("%d-%m-%y-%H-%M")
+	print "This Is The Current Year Right Now: ", datetime.date.today().strftime("%Y")
+	print "This Is The Current Month Of Year: ", datetime.date.today().strftime("%B")
+	print "This Is The Current Week Number Of The Year Out Of 52: ", datetime.date.today().strftime("%W")
+	print "This Is The Current Weekday Of The Week: ", datetime.date.today().strftime("%w")
+	print "This Is The Current Day Of The Year Out Of The 365 Days: ", datetime.date.today().strftime("%j")
+	print "This Is The Current Day Of The Month : ", datetime.date.today().strftime("%d")
+	print "This Is The Current Day Of The Week: ", datetime.date.today().strftime("%A")
+	
+	TALKABOUT()
+
+	
 def FAVOURITEcolour():
 	print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~") #Prints the separator
 	
-	global USERCOLOUR
+	global USERCOLOUR #This is the users input colour
 	
 	print("""Say A Colour From The Rainbow:
 	Red
@@ -170,12 +191,25 @@ def FAVOURITEcolour():
 	Pink
 	""")
 	
+	
+	coloursAll = ['red','orange','yellow','green','blue','purple','pink']
+	
+	
 	print(" ")
 	
 	print("Input Example 'Blue' In Caps If You Like! ")
+	print("Or You May Put It In A Sentence Like 'I Like the Colour Blue' ")
 	USERCOLOUR = raw_input("What Is Your Favourite Colour?: ").lower()
 	
-	print(USERCOLOUR)
+	print(" ")
+	
+	if any(x in USERCOLOUR for x in coloursAll):
+		print(USERCOLOUR + ' ' + "This Will Be Useful To Me Later!")
+	else:
+		print("Did You Say A Colour?")
+		FAVOURITEcolour()
+		
+	TALKABOUT()
 
 
 def FAVOURITEfood():
@@ -183,46 +217,44 @@ def FAVOURITEfood():
 	
 	global USERFOOD
 	
-	USERFOOD = raw_input("DEBUG")
+	print("""Say Your Favourite Food From The List:
+	Unhealthy
+	Healthy
+	Chocolatte
+	McDonald's
+	Chips
+	Scones
+	Crisps
+	Fruit
+	Pancake
+	""")
+	
+	USERFOOD = raw_input("What Is Your Favou")
 	
 	print(USERFOOD)
+	
+	TALKABOUT()
 
 
 def Finished():
 	print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~") #Prints the separator
 	print("Finished")
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 
 
+	
+	
 GREETINGS() #Activates function
-print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~") #Prints the separator
-HOWOLD() #Activates function
-print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~") #Prints the separator
-TALKABOUT() #Activates function
-print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~") #Prints the separator
 
 
 
 
 
-
-
-
+#print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~") #Prints the separator
+#HOWOLD() #Activates function
+#print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~") #Prints the separator
+#TALKABOUT() #Activates function
+#print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~") #Prints the separator
 
 #RESTART() #Activates Function
 #print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~") #Prints the separator

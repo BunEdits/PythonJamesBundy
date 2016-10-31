@@ -1,7 +1,9 @@
-
 from GraphicsEngine import * #Imports graphics engine
 import random #Imports random allows for random.choice
 import time #Imports sleep
+
+
+#Click Mouse To Cycle Through The Stages.
 
 
 
@@ -23,7 +25,7 @@ while True:
 	#print(Red,Green,Blue) #DEBUG rgb random
 
 	randomNumberfirst = random.choice(myArray) #Sets var to number in array
-	time.sleep(2)
+	time.sleep(0.1)
 	#print(random.choice(myArray)) #Prints random number from my array of numbers
 
 	
@@ -50,19 +52,4 @@ while True:
 	Ball.setOutline(color_rgb(Red,Green,Blue))
 	Ball.draw(Window)
 	
-
-
-
-
-
-Window.getMouse()	#Waits until mouse click to finish script
-
-
-
-
-
-	
-
-
-
-
+	Window.getMouse()	#Waits until mouse click to finish script, Click to run while loop agains
