@@ -221,7 +221,7 @@ def FAVOURITEfood():
 	Unhealthy
 	Healthy
 	Chocolatte
-	McDonald's
+	McDonalds
 	Chips
 	Scones
 	Crisps
@@ -229,16 +229,46 @@ def FAVOURITEfood():
 	Pancake
 	""")
 	
-	USERFOOD = raw_input("What Is Your Favou")
+	LISTOFFOOD = ['unhealthy','healthy','chocolatte','mcdonalds','chips','scones','crisps','fruit','pancake']
 	
-	print(USERFOOD)
+	print(" ")
+	
+	
+	print("You Can Either Put It In A Sentence Or Just On Its Own From The List	")
+	USERFOOD = raw_input("What Is Your Favourite Food?: ").lower()
+	
+	if any(x in USERFOOD for x in LISTOFFOOD):
+		print(USERFOOD + ' ' + "To Right, This Will Be Useful To Me Later!")
+	else:
+		print("Did You Say A Food?")
+		FAVOURITEfood()
 	
 	TALKABOUT()
 
 
 def Finished():
 	print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~") #Prints the separator
-	print("Finished")
+	
+	global USERNAME
+	
+	USERNAME = raw_input("Oh No I Forgot To Ask You For Your Name What Is It?: ")
+	
+	print(USERNAME + "!")
+	print("This Is All I know About You So Far!: ")
+	print(" ")
+	print("You Are " + AGEG)
+	print("You Wish You Was " + WISHAGE)
+	print("You Wish It Was Always " + WISHTIME)
+	print("You Wish The Date Was " + WISHDATE)
+	print("Your Favourite Colour Is " + USERCOLOUR)
+	print("Not To Forget Your Favourite Food Is " + USERFOOD)
+	
+	print(" ")
+	print(" ")
+	print(" ")
+	
+	GREETINGS()
+	
 	
 
 
