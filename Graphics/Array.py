@@ -3,7 +3,7 @@ import random #Imports random allows for random.choice
 import time #Imports sleep
 
 
-#Click Mouse To Cycle Through The Stages.
+#Click Mouse To Cycle Through The Stages.  ~
 
 
 
